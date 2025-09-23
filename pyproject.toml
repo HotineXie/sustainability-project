@@ -1,0 +1,37 @@
+[project]
+name = "sustainability-project"
+version = "0.1.0"
+description = "Energy intensity analysis for CA and TX electricity generation"
+authors = [
+    {name = "Sustainability Team"}
+]
+readme = "README.md"
+requires-python = ">=3.8"
+dependencies = [
+    "pandas>=1.5.0",
+    "openpyxl>=3.0.0",  # for reading .xlsx files
+]
+
+[project.optional-dependencies]
+dev = [
+    "pytest>=7.0.0",
+    "black>=22.0.0",
+    "flake8>=5.0.0",
+]
+
+[tool.hatch.build.targets.wheel]
+packages = ["."]
+include = [
+    "ca/*.py",
+    "tx/*.py", 
+    "*.md",
+    "*.json",
+    "*.csv"
+]
+
+[tool.uv]
+dev-dependencies = [
+    "pytest>=7.0.0",
+    "black>=22.0.0",
+    "flake8>=5.0.0",
+]
